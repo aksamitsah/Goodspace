@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "countrypickeraks",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/aksamitsah/CountryPickerAKS.git",
+      "state" : {
+        "revision" : "9757ecf74d434cc544d6ac163259d31643091933",
+        "version" : "0.6.0"
+      }
+    }
+  ],
+  "version" : 2
+}
