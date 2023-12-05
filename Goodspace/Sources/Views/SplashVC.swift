@@ -31,4 +31,5 @@ class SplashVC: BaseVC {
             AppSettings.isActiveUser ? self.openVC(DashboardVC.self) : self.openVC(LoginVC.self)
         }
     }
+    
 }
