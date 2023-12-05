@@ -9,19 +9,22 @@ import Foundation
 
 final class LoginViewModel{
     
-    var countryCode = "91"
+    var data: AuthModel
     
-    func getOTP(mobile: String, comp: @escaping (Result<Bool,HandleError>) -> Void){
-        APIManager.request(endpoint: GoodSpaceAPI.Login(country: countryCode, mobile: mobile)) {
+    init() {
+        data = AuthModel(mobile: "", countryCode: "")
+    }
+    
+    func getOTP(mobile: String, comp: @escaping (Result<String,HandleError>) -> Void){
+        data.mobile = mobile
+        APIManager.request(endpoint: GoodSpaceAPI.Login(country: data.countryCode, mobile: mobile)) {
             (result: Result<LoginModel, HandleError>) in
             switch result{
-            case .success(_):
-                comp(.success(true))
+            case .success(let data):
+                comp(.success(data.message ?? ""))
             case .failure(let error):
                 comp(.failure(error))
             }
         }
-    }  
-    
-
+    }
 }

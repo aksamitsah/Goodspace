@@ -10,10 +10,8 @@ import Foundation
 
 enum GoodSpaceAPI {
     case Login(country: String, mobile: String)
+    case VerifyOTP(mobile: String, otp: String)
     case premiumProducts
-//    case categoryCountLookup(category: Int)
-//    case globalCategoryCountLookup
-//    case generateQuiz(amount: Int, category: Int?, difficulty: String?, type: String?)
 }
 
 extension GoodSpaceAPI: API{
@@ -29,13 +27,13 @@ extension GoodSpaceAPI: API{
     var headers: [String : String]? {
         
         let header = [
-            "Authorization":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NTMwNzEyMzQ3LCJpYXQiOjE3MDE3Mjc3MzZ9.-Zxesz3lDc-_E06MAgXo51jgiOuJfFIT7Ekg5ADPj-A",
+            "Authorization": AppSettings.token ?? "",
             "device-id": AppFeature.currentDeviceID,
             "device-type": "ios"
         ]
         
         switch self {
-        case .Login, .premiumProducts:
+        case .Login, .premiumProducts, .VerifyOTP:
             return header
         }
         
@@ -44,7 +42,7 @@ extension GoodSpaceAPI: API{
     
     var method: HTTPMethod{
         switch self {
-        case .Login:
+        case .Login, .VerifyOTP:
             return .post
         case .premiumProducts:
             return .get
@@ -57,6 +55,8 @@ extension GoodSpaceAPI: API{
             return "/api/d2/auth/v2/login"
         case .premiumProducts:
             return "/api/d2/manage_products/getInActiveProducts"
+        case .VerifyOTP:
+            return "/api/d2/auth/verifyotp"
         }
     }
     
@@ -68,7 +68,12 @@ extension GoodSpaceAPI: API{
         case .Login(country: let country, mobile: let mobile):
             data["number"] = mobile
             data["countryCode"] = country
+        
         case .premiumProducts: break
+            
+        case .VerifyOTP(mobile: let mobile, otp: let otp):
+            data["number"] = mobile
+            data["otp"] = otp
         }
         
         do{

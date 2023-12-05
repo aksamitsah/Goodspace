@@ -12,6 +12,7 @@
 		<string>Poppins-Light</string>
 		<string>Poppins-Light</string>
 		<string>Poppins-Medium</string>
+		<string>Poppins-SemiBold</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>

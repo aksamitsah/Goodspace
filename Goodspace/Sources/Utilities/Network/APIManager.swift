@@ -85,9 +85,20 @@ final class APIManager {
             
             guard let response = response as? HTTPURLResponse,
                   200 ... 299 ~= response.statusCode else {
-                completion(.failure(.invalidResponse))
+                
+                do{
+                    if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
+                       let sendback = json["message"] as? String {
+                        completion(.failure(.custom(sendback)))
+                    }else{
+                        completion(.failure(.invalidResponse))
+                    }
+                }catch{
+                    completion(.failure(.invalidResponse))
+                }
                 Log.error("Failed Response Code")
                 return
+                
             }
             
             do{

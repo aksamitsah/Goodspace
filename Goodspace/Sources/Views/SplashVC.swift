@@ -9,7 +9,7 @@ import UIKit
 
 class SplashVC: BaseVC {
 
-    @IBOutlet weak var logoImageView: UIImageView!
+    @IBOutlet weak private var logoImageView: UIImageView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,4 +31,5 @@ class SplashVC: BaseVC {
             AppSettings.isActiveUser ? self.openVC(DashboardVC.self) : self.openVC(LoginVC.self)
         }
     }
+    
 }
