@@ -20,11 +20,10 @@ final class TabBarViewModel{
     
     var activeIndex = 0{
         didSet{
-            delegate?.setViewController(tag: activeIndex)
-            delegate?.tabUIUpdate(tag: activeIndex)
+            delegate?.updateUI(for: activeIndex)
         }
     }
     
-    weak var delegate: TabBarVC?
+    var delegate: TabBarViewModelProtocal?
     
 }

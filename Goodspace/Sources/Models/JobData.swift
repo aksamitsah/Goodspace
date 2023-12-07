@@ -1,5 +1,5 @@
 //
-//  WorkModel.swift
+//  JobData.swift
 //  Goodspace
 //
 //  Created by Amit Shah on 07/12/23.

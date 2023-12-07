@@ -12,8 +12,20 @@ class WorkVC: BaseVC {
     @IBOutlet weak private var searchView: UIView!
     @IBOutlet weak private var searchTF: UITextField!
     
+    @IBOutlet weak private var premiumProductView: UIView! {
+        didSet{
+            UIView.animate(withDuration: 0.2) {
+                self.premiumProductHeightConst.constant = (self.premiumProductView.isHidden) ? 0 : 182
+            }
+        }
+    }
+    
+    @IBOutlet weak private var premiumProductHeightConst: NSLayoutConstraint!
+    
     @IBOutlet weak private var tableView: UITableView!
     @IBOutlet weak private var tableViewHeightConst: NSLayoutConstraint!
+    
+    @IBOutlet weak private var collectionView: UICollectionView!
     
     private let viewModel = WorkViewModel()
     
@@ -56,12 +68,44 @@ extension WorkVC : UITableViewDelegate, UITableViewDataSource {
 
 extension WorkVC: UITextFieldDelegate {
     
+    internal func textFieldDidChangeSelection(_ textField: UITextField) {
+    
+        if viewModel.fetechJobSearch(data: textField.text ?? ""){
+            tableView.reloadData()
+        }
+        
+    }
+    
+    internal func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        textField.resignFirstResponder()
+        return true
+        
+    }
+    
+    
+}
 
+extension WorkVC : UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        viewModel.premiumProduct.count
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PremiumProductCell.identifier, for: indexPath) as! PremiumProductCell
+        cell.data = viewModel.premiumProduct[indexPath.row]
+        return cell
+    }
+    
+    
 }
 
 extension WorkVC {
     
     private func setupUI(){
+        
+        premiumProductView.isHidden = true
         
         searchView.defaultTheme()
 
@@ -70,6 +114,8 @@ extension WorkVC {
         
         tableView.register(UINib(nibName: JobsTvCell.identifier, bundle: Bundle.main), forCellReuseIdentifier: JobsTvCell.identifier)
         tableView.dataSource = self
+        
+        collectionView.dataSource = self
         
     }
 
@@ -90,25 +136,36 @@ extension WorkVC {
             case .failure(let error):
                 DispatchQueue.main.async {
                     AppHelper.shared.hideProgressIndicator(view: self?.view)
-                    AppHelper.shared.showAlert(title: "Not Found...!!!", message: error.localizedDescription, vc: self)
+                    AppHelper.shared.showAlert(title: "Not Found", message: error.localizedDescription, vc: self)
                 }
             }
         }
+        
+        viewModel.fetchPremiumProduct {  [weak self] result in
+            switch result{
+            case .success(let data):
+                    DispatchQueue.main.async {
+                        self?.premiumProductView.isHidden = !data
+                        self?.collectionView.reloadData()
+                    }
+            case .failure(let error):
+                DispatchQueue.main.async {
+                    AppHelper.shared.hideProgressIndicator(view: self?.view)
+                    AppHelper.shared.showAlert(title: "Not Found", message: error.localizedDescription, vc: self)
+                }
+            }
+        }
+        
+        
     }
     
     private func shareURL(url shareURLString : String) {
         
-            if let shareURL = URL(string: shareURLString) {
-                let activityViewController = UIActivityViewController(activityItems: [shareURL], applicationActivities: nil)
-                
-                // On iPad, set a source view to prevent a crash
-                if let popoverController = activityViewController.popoverPresentationController {
-                    popoverController.sourceView = self.view
-                }
-                
-                present(activityViewController, animated: true, completion: nil)
-            }
+        if let shareURL = URL(string: shareURLString){
+            let activity = UIActivityViewController(activityItems: [shareURL], applicationActivities: nil)
+            present(activity, animated: true)
         }
-    
+        
+    }
     
 }

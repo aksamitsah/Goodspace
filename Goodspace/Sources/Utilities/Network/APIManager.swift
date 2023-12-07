@@ -24,18 +24,6 @@ enum HTTPScheme: String {
 }
 
 
-protocol API {
-    var scheme: HTTPScheme { get }
-    var baseURL: String { get }
-    var path: String { get }
-    var headers: [String: String]? { get }
-    var body: Data? { get }
-    var parameters: [URLQueryItem]? { get }
-    var method: HTTPMethod { get }
-}
-
-
-
 final class APIManager {
     
     private class func buildURL(endpoint: API) -> URLComponents {

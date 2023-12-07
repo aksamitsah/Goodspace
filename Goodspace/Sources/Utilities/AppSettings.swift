@@ -8,7 +8,7 @@
 import Foundation
 
 
-struct AppSettings{
+struct AppSettings {
 
     static var token: String? {
         get {
@@ -29,17 +29,23 @@ struct AppSettings{
     }
     
     static var isActiveUser: Bool {
-        
         get {
             return UserDefaults.standard.bool(forKey: "login")
         }
     }
+
+    static var imageUrl: String? {
+        get {
+            return UserDefaults.standard.string(forKey: "imageUrl")
+        }
+    }
     
-    static func setValue(token: String, countryCode: String, mobileNo: String){
+    static func setValue(token: String, countryCode: String, mobileNo: String, imageUrl: String){
         
         let userDefault = UserDefaults.standard
         
         userDefault.setValue(token, forKey: "token")
+        userDefault.setValue(imageUrl, forKey: "imageUrl")
         userDefault.setValue(countryCode, forKey: "countryCode")
         userDefault.setValue(mobileNo, forKey: "mobileNo")
         userDefault.setValue(true, forKey: "login")
@@ -53,6 +59,7 @@ struct AppSettings{
         let userDefault = UserDefaults.standard
         
         userDefault.removeObject(forKey: "token")
+        userDefault.removeObject(forKey: "imageUrl")
         userDefault.removeObject(forKey: "countryCode")
         userDefault.removeObject(forKey: "mobileNo")
         userDefault.removeObject(forKey: "login")

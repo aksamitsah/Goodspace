@@ -7,7 +7,7 @@
 
 import Foundation
 
-
+//TEST USER FOR APP_STORE_CONNECT VERIFICATION
 struct APP_STORE{
     
     static var isTestUser = false

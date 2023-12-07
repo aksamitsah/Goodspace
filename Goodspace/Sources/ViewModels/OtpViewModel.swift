@@ -12,10 +12,11 @@ final class OtpViewModel{
     
     var data: AuthModel = AuthModel(mobile: "", countryCode: "")
     var isInvalidOTP: Bool = false
+    
     var user: OtpResponse?{
         didSet{
             if let ds = user{
-                AppSettings.setValue(token: ds.token ?? "", countryCode: ds.country_code ?? "", mobileNo: ds.mobile_number ?? "")
+                AppSettings.setValue(token: ds.token ?? "", countryCode: ds.country_code ?? "", mobileNo: ds.mobile_number ?? "", imageUrl: ds.image_id ?? "")
             }
         }
     }
@@ -73,7 +74,7 @@ final class OtpViewModel{
             
             DispatchQueue.global(qos: .background).asyncAfter(deadline: .now() + 2.0) {
                 APP_STORE.isTestUser = true
-                AppSettings.setValue(token: APP_STORE.token, countryCode: APP_STORE.user.countryCode , mobileNo: APP_STORE.user.mobile)
+                AppSettings.setValue(token: APP_STORE.token, countryCode: APP_STORE.user.countryCode , mobileNo: APP_STORE.user.mobile, imageUrl: "")
                 comp(.success(nil))
             }
             

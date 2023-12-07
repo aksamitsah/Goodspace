@@ -74,5 +74,31 @@ extension UIView{
         defaultTheme(borderColor: (type == .fill) ? .primaryColor : type.colorOTP , backgroundColor: (type == .fill) ? .primaryColor : .clear)
     }
     
-}
+    
+    func setImageWithProgress(lineWidth: CGFloat = 4, stroke: CGFloat = 1, color : UIColor = .greenColor, image: UIImageView, imageUrl: String, placeholder: UIImage? = nil){
+        
+        let centerPoint = CGPoint(x: bounds.width / 2, y: bounds.height / 2)
+        let circleRadius: CGFloat = bounds.width / 2 * 0.83
 
+        let circlePath = UIBezierPath(
+            arcCenter: centerPoint,
+            radius: circleRadius,
+            startAngle: CGFloat(-0.5 * Double.pi),
+            endAngle: CGFloat(1.5 * Double.pi),
+            clockwise: true
+        )
+
+        let progressCircle = CAShapeLayer()
+        progressCircle.path = circlePath.cgPath
+        progressCircle.strokeColor = color.cgColor
+        progressCircle.fillColor = UIColor.clear.cgColor
+        progressCircle.lineWidth = lineWidth
+        progressCircle.strokeStart = 0.0
+        progressCircle.strokeEnd = stroke
+
+        layer.addSublayer(progressCircle)
+
+        image.tintColor = .accent
+        image.setImage(urlString: imageUrl, isRoundImg: true, placeholder: placeholder)
+    }
+}

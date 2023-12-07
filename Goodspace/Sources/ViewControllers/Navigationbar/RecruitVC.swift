@@ -8,11 +8,12 @@
 import UIKit
 
 class RecruitVC: BaseVC {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         view.backgroundColor = .blue.withAlphaComponent(0.5)
+
     }
 
 }
