@@ -15,8 +15,8 @@
 - OTP : `1234`
 
 ## 🔗 APP Link:
-- TestFlight Public Link :
-- App Store Live: Soon :
+- TestFlight Public Link : https://testflight.apple.com/join/9wovaSD1
+- App Store Live: Comming Soon
 
 ## Project Desctiptions: 
 
