@@ -10,14 +10,14 @@ import CountryPickerAKS
 
 class EditPhoneNumberPopup: BaseVC {
     
-    @IBOutlet weak var mainView: UIView!
-    @IBOutlet weak var responseMsg: UILabel!
+    @IBOutlet weak private var mainView: UIView!
+    @IBOutlet weak private var responseMsg: UILabel!
     @IBOutlet weak private var dividerView: UIView!
     @IBOutlet weak private var bottomView: UIView!
     @IBOutlet weak private var countryPickerBtn: UIButton!
     @IBOutlet weak private var mobileNoTF: UITextField!
     
-    var completion: ((AuthModel) -> Void)?
+    private var completion: ((AuthModel) -> Void)?
     
     private let viewModel = LoginViewModel()
     
@@ -47,16 +47,6 @@ class EditPhoneNumberPopup: BaseVC {
     
     @IBAction func closeBtn(_ sender: Any) {
         dismiss(animated: true)
-    }
-    
-    static func openVc(parentVC: UIViewController, data: AuthModel, completion: @escaping (AuthModel) -> Void){
-        
-          let vc = EditPhoneNumberPopup(nibName: "EditPhoneNumberPopup", bundle: Bundle.main)
-          vc.modalPresentationStyle = .custom
-          vc.modalTransitionStyle = .crossDissolve
-          vc.viewModel.data = data
-          vc.completion = completion
-          parentVC.present(vc, animated: true)
     }
 
 }
@@ -167,6 +157,16 @@ extension EditPhoneNumberPopup{
             }
         }
         
+    }
+    
+    static func openVc(parentVC: UIViewController, data: AuthModel, completion: @escaping (AuthModel) -> Void){
+        
+          let vc = EditPhoneNumberPopup(nibName: "EditPhoneNumberPopup", bundle: Bundle.main)
+          vc.modalPresentationStyle = .custom
+          vc.modalTransitionStyle = .crossDissolve
+          vc.viewModel.data = data
+          vc.completion = completion
+          parentVC.present(vc, animated: true)
     }
     
 }

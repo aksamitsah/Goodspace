@@ -7,8 +7,6 @@
 
 import Foundation
 
-
-
 struct JobDataModel : Decodable{
     
     let message: String?
@@ -68,9 +66,7 @@ struct JobCardData : Decodable {
     }
     
     let url: String
-    
-//    let monthly_compensation: String?
-//    let hourly_compensation: String?
+
     let displayCompensation: String
     
     let relativeTime: String

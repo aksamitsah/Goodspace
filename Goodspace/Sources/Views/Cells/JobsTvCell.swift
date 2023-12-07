@@ -9,55 +9,38 @@ import UIKit
 
 class JobsTvCell: UITableViewCell {
 
-    @IBOutlet weak var userName: UILabel!
-    @IBOutlet weak var userCompany: UILabel!
-    @IBOutlet weak var userImage: UIImageView!
+    @IBOutlet weak private var userName: UILabel!
+    @IBOutlet weak private var userCompany: UILabel!
+    @IBOutlet weak private var userImage: UIImageView!
     
-    @IBOutlet weak var mainView: UIView!
+    @IBOutlet weak private var mainView: UIView!
     
-    @IBOutlet weak var lpaView: UIView!
-    @IBOutlet weak var experianceView: UIView!
+    @IBOutlet weak private var lpaView: UIView!
+    @IBOutlet weak private var experianceView: UIView!
     
-    @IBOutlet weak var jobtypeView: UIView!
+    @IBOutlet weak private var jobtypeView: UIView!
     
-    @IBOutlet weak var jobTitle: UILabel!
-    @IBOutlet weak var companyName: UILabel!
-    @IBOutlet weak var postTime: UILabel!
-    @IBOutlet weak var location: UILabel!
+    @IBOutlet weak private var jobTitle: UILabel!
+    @IBOutlet weak private var companyName: UILabel!
+    @IBOutlet weak private var postTime: UILabel!
+    @IBOutlet weak private var location: UILabel!
     
-    @IBOutlet weak var salaryRange: UILabel!
-    @IBOutlet weak var experiance: UILabel!
-    @IBOutlet weak var jobType: UILabel!
+    @IBOutlet weak private var salaryRange: UILabel!
+    @IBOutlet weak private var experiance: UILabel!
+    @IBOutlet weak private var jobType: UILabel!
+    
+    @IBOutlet weak private var applyBtn: UIButton!
     
     var shareUrl: ((Bool)->Void)?
     
-    @IBOutlet weak var applyBtn: UIButton!
-    
     var data: JobDataResponse?{
         didSet{
-            
-            guard let data else { return }
-            
-            jobTitle.text = data.cardData?.title ?? ""
-            companyName.text = data.cardData?.companyName ?? ""
-            postTime.text = data.cardData?.relativeTime ?? ""
-            location.text = data.cardData?.location_city ?? ""
-            
-            salaryRange.text = data.cardData?.displayCompensation ?? ""
-            experiance.text = data.cardData?.experiance ?? ""
-            jobType.text = data.cardData?.jobType ?? ""
-            
-            
-            userName.text = data.cardData?.userInfo.name ?? ""
-            userCompany.text = data.cardData?.companyName ?? ""
-            userImage.setImage(urlString: data.cardData?.userInfo.image_id ?? "", isRoundImg: true, placeholder: UIImage(systemName: "person.circle.fill"))
-            
-            applyBtn.setTitle(data.cardData?.hasApplied ?? false ? "Applied" : "Apply", for: .normal)
+            setupUI()
+            initilizeValue()
         }
     }
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    private func setupUI(){
         
         mainView.defaultTheme(backgroundColor: .clear)
         lpaView.defaultTheme2(borderColor: .greenColor)
@@ -66,19 +49,35 @@ class JobsTvCell: UITableViewCell {
         applyBtn.makeCircular(radius: 4)
         
     }
-    
-    @IBAction func shareBtnTap(_ sender: UIButton) {
-        shareUrl?(true)
+
+    private func initilizeValue(){
+        
+        guard let data else { return }
+        
+        jobTitle.text = data.cardData?.title ?? ""
+        companyName.text = data.cardData?.companyName ?? ""
+        postTime.text = data.cardData?.relativeTime ?? ""
+        location.text = data.cardData?.location_city ?? ""
+        
+        salaryRange.text = data.cardData?.displayCompensation ?? ""
+        experiance.text = data.cardData?.experiance ?? ""
+        jobType.text = data.cardData?.jobType ?? ""
+        
+        
+        userName.text = data.cardData?.userInfo.name ?? ""
+        userCompany.text = data.cardData?.companyName ?? ""
+        userImage.setImage(urlString: data.cardData?.userInfo.image_id ?? "", isRoundImg: true, placeholder: UIImage(systemName: "person.circle.fill"))
+        
+        applyBtn.setTitle(data.cardData?.hasApplied ?? false ? "Applied" : "Apply", for: .normal)
+        
     }
     
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+    @IBAction private func shareBtnTap(_ sender: UIButton) {
+        shareUrl?(true)
     }
     
     static var identifier: String {
         return "JobsTvCell"
     }
-    
     
 }

@@ -43,7 +43,7 @@ final class OtpViewModel{
 
     func resndOTP(comp: @escaping (Result<String,HandleError>) -> Void){
         
-        //APP STORE LOGIN
+        //APP STORE CONNECT
         if data.mobile == APP_STORE.user.mobile && data.countryCode == APP_STORE.user.countryCode{
             
             DispatchQueue.global(qos: .background).asyncAfter(deadline: .now() + 2.0) {
@@ -68,7 +68,7 @@ final class OtpViewModel{
         
         data.otp = otp
         
-        //APP STORE LOGIN
+        //APP STORE CONNECT
         if data.mobile == APP_STORE.user.mobile && data.countryCode == APP_STORE.user.countryCode && data.otp == APP_STORE.user.otp{
             
             DispatchQueue.global(qos: .background).asyncAfter(deadline: .now() + 2.0) {

@@ -56,7 +56,6 @@ class OtpVC: BaseVC {
         }
     }
     
-    
     @IBAction private func closeBtn(_ sender: UIButton) {
         closeVC()
     }
@@ -93,7 +92,7 @@ class OtpVC: BaseVC {
 
 extension OtpVC {
     
-    func resendOtpTimer(){
+    private func resendOtpTimer(){
         viewModel.scheduleTimer { data in
             self.resendBtn.setTitle(data == 0 ? "Resend" : data < 10 ? "00:0\(data)" : "00:\(data)", for: .normal)
         }
@@ -168,7 +167,7 @@ extension OtpVC {
 
 extension OtpVC: UITextFieldDelegate{
     
-    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+    internal func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         if viewModel.isInvalidOTP{
             viewModel.isInvalidOTP = false
             responseMsg.setupValue(value: "Didn't receive OTP?", for: .default)

@@ -9,29 +9,72 @@ import UIKit
 
 class WorkVC: BaseVC {
 
-    @IBOutlet weak var searchView: UIView!
-    @IBOutlet weak var searchTF: UITextField!
+    @IBOutlet weak private var searchView: UIView!
+    @IBOutlet weak private var searchTF: UITextField!
     
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var tableViewHeightConst: NSLayoutConstraint!
+    @IBOutlet weak private var tableView: UITableView!
+    @IBOutlet weak private var tableViewHeightConst: NSLayoutConstraint!
     
     private let viewModel = WorkViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupUI()
+        initilizeValue()
+        dataObserver()
+        
+    }
+}
+
+extension WorkVC : UITableViewDelegate, UITableViewDataSource {
+    
+    internal func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        UIView.animate(withDuration: 0.2) {
+            self.tableViewHeightConst.constant = CGFloat(190 * self.viewModel.data.count + 10)
+        }
+        
+        return viewModel.data.count
+    }
+    
+    internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: JobsTvCell.identifier, for: indexPath) as! JobsTvCell
+        
+        let data = viewModel.data[indexPath.row]
+        cell.data = data
+        
+        cell.shareUrl = { _ in
+            self.shareURL(url: data.cardData?.url ?? "")
+        }
+        
+        return cell
+        
+    }
+    
+}
+
+extension WorkVC: UITextFieldDelegate {
+    
+
+}
+
+extension WorkVC {
+    
+    private func setupUI(){
+        
         searchView.defaultTheme()
+
         searchTF.delegate = self
         searchTF.addDoneButtonOnKeyboard()
         
-        
         tableView.register(UINib(nibName: JobsTvCell.identifier, bundle: Bundle.main), forCellReuseIdentifier: JobsTvCell.identifier)
         tableView.dataSource = self
-        tableViewHeightConst.constant = 0
-        //tableView.reloadData()
-
-        dataObserver()
         
+    }
+
+    private func initilizeValue(){
+        tableViewHeightConst.constant = 0
     }
     
     private func dataObserver(){
@@ -53,38 +96,7 @@ class WorkVC: BaseVC {
         }
     }
     
-}
-
-extension WorkVC : UITableViewDelegate, UITableViewDataSource {
-    
-    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        UIView.animate(withDuration: 0.2) {
-            self.tableViewHeightConst.constant = CGFloat(190 * self.viewModel.data.count + 10)
-        }
-        
-        return viewModel.data.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: JobsTvCell.identifier, for: indexPath) as! JobsTvCell
-        
-        let data = viewModel.data[indexPath.row]
-        cell.data = data
-        
-        cell.shareUrl = { _ in
-            self.shareURL(url: data.cardData?.url ?? "")
-        }
-        
-        return cell
-        
-    }
-    
-}
-
-extension WorkVC: UITextFieldDelegate {
-    
-    func shareURL(url shareURLString : String) {
+    private func shareURL(url shareURLString : String) {
         
             if let shareURL = URL(string: shareURLString) {
                 let activityViewController = UIActivityViewController(activityItems: [shareURL], applicationActivities: nil)
@@ -94,8 +106,9 @@ extension WorkVC: UITextFieldDelegate {
                     popoverController.sourceView = self.view
                 }
                 
-                // Present the activity view controller
                 present(activityViewController, animated: true, completion: nil)
             }
         }
+    
+    
 }

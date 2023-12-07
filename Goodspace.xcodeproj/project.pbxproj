@@ -49,6 +49,7 @@
 		6D7227F42B210EC2007B30B8 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6D4626B82B1E721D00B5750F /* Poppins-Medium.ttf */; };
 		6D7227F52B210EC2007B30B8 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6D4626B62B1E721D00B5750F /* Poppins-Regular.ttf */; };
 		6DA318162B21E7BC00396190 /* AppStoreTestUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DA318152B21E7BC00396190 /* AppStoreTestUser.swift */; };
+		6DA318182B21F29C00396190 /* TabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DA318172B21F29C00396190 /* TabBarViewModel.swift */; };
 		6DB338B02B1F2EA90059DDDB /* UIColor + Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB338AF2B1F2EA90059DDDB /* UIColor + Theme.swift */; };
 		6DC93CA62B21276C00CAF8B4 /* UIImageView + SetImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC93CA52B21276C00CAF8B4 /* UIImageView + SetImage.swift */; };
 		6DC93CAB2B212CF000CAF8B4 /* WorkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DC93CAA2B212CF000CAF8B4 /* WorkModel.swift */; };
@@ -104,6 +105,7 @@
 		6D7227EF2B21035E007B30B8 /* JobsTvCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JobsTvCell.xib; sourceTree = "<group>"; };
 		6DA318142B21DDCB00396190 /* Goodspace.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Goodspace.entitlements; sourceTree = "<group>"; };
 		6DA318152B21E7BC00396190 /* AppStoreTestUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreTestUser.swift; sourceTree = "<group>"; };
+		6DA318172B21F29C00396190 /* TabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewModel.swift; sourceTree = "<group>"; };
 		6DB338AE2B1F2B3A0059DDDB /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
 		6DB338AF2B1F2EA90059DDDB /* UIColor + Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + Theme.swift"; sourceTree = "<group>"; };
 		6DC93CA52B21276C00CAF8B4 /* UIImageView + SetImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView + SetImage.swift"; sourceTree = "<group>"; };
@@ -218,6 +220,7 @@
 				6D4626B92B1E73F900B5750F /* LoginViewModel.swift */,
 				6D3F637A2B1F1CE700BCD1F4 /* OtpViewModel.swift */,
 				6DC93CAC2B21355E00CAF8B4 /* WorkViewModel.swift */,
+				6DA318172B21F29C00396190 /* TabBarViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -449,6 +452,7 @@
 				6D010BA92B1E059C006F48BA /* SceneDelegate.swift in Sources */,
 				6D010BC72B1E2F7D006F48BA /* UIImageView + AnimateImage.swift in Sources */,
 				6DF163162B1FD63600635DC4 /* ProfileVC.swift in Sources */,
+				6DA318182B21F29C00396190 /* TabBarViewModel.swift in Sources */,
 				6D7227F02B21035F007B30B8 /* JobsTvCell.swift in Sources */,
 				6DF163142B1FD61E00635DC4 /* MessageVC.swift in Sources */,
 				6D010BE22B1E49D6006F48BA /* AppFeature.swift in Sources */,

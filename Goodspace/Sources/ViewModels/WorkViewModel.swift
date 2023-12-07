@@ -18,9 +18,7 @@ final class WorkViewModel{
             switch result{
             case .success(let data):
                 if data.status == 200{
-                    
                     self.data = data.data.filter({ $0.type.lowercased() == "job" })
-                    
                     data.data.isEmpty ? comp(.failure(.custom("No Job List Found"))) : comp(.success(true))
                 }else {
                     comp(.failure(.custom("Something Went Wrong")))
