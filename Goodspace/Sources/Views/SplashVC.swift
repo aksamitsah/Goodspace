@@ -28,7 +28,7 @@ class SplashVC: BaseVC {
     
     override func viewDidAppear(_ animated: Bool) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.4) {
-            AppSettings.isActiveUser ? self.openVC(DashboardVC.self) : self.openVC(LoginVC.self)
+            AppSettings.isActiveUser ? self.openVC(TabBarVC.self) : self.openVC(LoginVC.self)
         }
     }
     

@@ -108,7 +108,7 @@ extension OtpVC {
                     DispatchQueue.main.async {
                         AppHelper.shared.hideProgressIndicator(view: self?.view)
                         if AppSettings.isActiveUser{
-                            self?.openVC(DashboardVC.self)
+                            self?.openVC(TabBarVC.self)
                         }
                     }
             case .failure(let error):

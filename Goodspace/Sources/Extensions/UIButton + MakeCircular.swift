@@ -5,12 +5,12 @@
 //  Created by Amit Shah on 05/12/23.
 //
 
-import UIKit
+import UIKit.UIButton
 
 extension UIButton {
     
-    func makeCircular() {
-        self.layer.cornerRadius = 10.0
+    func makeCircular(radius: CGFloat = 10.0) {
+        self.layer.cornerRadius = radius
         self.clipsToBounds = true
     }
 }

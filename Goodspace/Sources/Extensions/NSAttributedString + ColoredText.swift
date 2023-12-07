@@ -5,7 +5,7 @@
 //  Created by Amit Shah on 05/12/23.
 //
 
-import UIKit
+import UIKit.NSAttributedString
 
 extension NSAttributedString {
     static func coloredText(_ text: String, color: UIColor, forSubstring substring: String, font: UIFont? = nil) -> NSAttributedString {

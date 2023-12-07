@@ -5,7 +5,7 @@
 //  Created by Amit Shah on 04/12/23.
 //
 
-import UIKit
+import UIKit.UIViewController
 
 extension UIViewController {
     

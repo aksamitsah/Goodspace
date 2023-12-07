@@ -6,7 +6,7 @@
 //
 
 
-import UIKit
+import UIKit.UIImage
 import ImageIO
 
 extension UIImage {

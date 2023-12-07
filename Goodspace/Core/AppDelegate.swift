@@ -11,7 +11,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        Thread.sleep(forTimeInterval: 1) //1 secound
+        Thread.sleep(forTimeInterval: 0.2)
         return true
     }
 

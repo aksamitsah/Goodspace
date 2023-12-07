@@ -12,7 +12,7 @@ class BaseVC: UIViewController {
     var data: Any?
 
     func openVC<T: BaseVC>(_ controllerType: T.Type, data: Any? = nil, animation: Bool = true) {
-        if let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: controllerType.storyboardIdentifier) as? T {
+        if let vc = UIStoryboard(name: "GoodSpace", bundle: Bundle.main).instantiateViewController(withIdentifier: controllerType.storyboardIdentifier) as? T {
             vc.data = data
             navigationController?.pushViewController(vc, animated: animation)
         }

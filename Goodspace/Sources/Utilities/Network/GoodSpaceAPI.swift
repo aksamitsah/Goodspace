@@ -11,7 +11,9 @@ import Foundation
 enum GoodSpaceAPI {
     case Login(country: String, mobile: String)
     case VerifyOTP(mobile: String, otp: String)
+    case jobsListOnDashBoard
     case premiumProducts
+    
 }
 
 extension GoodSpaceAPI: API{
@@ -33,7 +35,7 @@ extension GoodSpaceAPI: API{
         ]
         
         switch self {
-        case .Login, .premiumProducts, .VerifyOTP:
+        case .Login, .premiumProducts, .VerifyOTP, .jobsListOnDashBoard:
             return header
         }
         
@@ -44,7 +46,7 @@ extension GoodSpaceAPI: API{
         switch self {
         case .Login, .VerifyOTP:
             return .post
-        case .premiumProducts:
+        case .premiumProducts, .jobsListOnDashBoard:
             return .get
         }
     }
@@ -57,6 +59,8 @@ extension GoodSpaceAPI: API{
             return "/api/d2/manage_products/getInActiveProducts"
         case .VerifyOTP:
             return "/api/d2/auth/verifyotp"
+        case .jobsListOnDashBoard:
+            return "/api/d2/member/dashboard/feed"
         }
     }
     
@@ -69,11 +73,12 @@ extension GoodSpaceAPI: API{
             data["number"] = mobile
             data["countryCode"] = country
         
-        case .premiumProducts: break
+        case .premiumProducts, .jobsListOnDashBoard: break
             
         case .VerifyOTP(mobile: let mobile, otp: let otp):
             data["number"] = mobile
             data["otp"] = otp
+            
         }
         
         do{

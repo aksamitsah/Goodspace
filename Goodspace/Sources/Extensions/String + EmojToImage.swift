@@ -5,7 +5,7 @@
 //  Created by Amit Shah on 05/12/23.
 //
 
-import UIKit
+import UIKit.UIImage
 
 
 extension String {

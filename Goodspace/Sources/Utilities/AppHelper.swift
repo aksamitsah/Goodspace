@@ -16,6 +16,27 @@ final class AppHelper{
     private init(){ }
     static let shared = AppHelper()
     
+    func addViewController(controller: BaseVC, containerView: UIView, currentController: UIViewController) {
+        
+        for contrlr in currentController.children {
+            if(contrlr == controller) {
+                return
+            }
+            else {
+                contrlr.removeFromParent()
+            }
+        }
+        for view in containerView.subviews {
+            view.removeFromSuperview()
+        }
+        
+        currentController.addChild(controller)
+        controller.view.frame = containerView.bounds
+        containerView.addSubview(controller.view)
+        controller.didMove(toParent: currentController)
+        
+    }
+    
     func showProgressIndicator(view views: UIView?) {
         guard let view = views else { return }
         DispatchQueue.main.async {

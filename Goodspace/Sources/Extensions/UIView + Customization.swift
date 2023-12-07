@@ -5,16 +5,28 @@
 //  Created by Amit Shah on 05/12/23.
 //
 
-import UIKit
+import UIKit.UIView
 
 extension UIView{
     
-    private func defaultTheme(cornerRadius: CGFloat = 6.0, borderWidth: CGFloat = 1.6, borderColor: UIColor = UIColor.systemGray5, backgroundColor: UIColor = UIColor.systemGray6){
+    func defaultTheme(cornerRadius: CGFloat = 6.0, borderWidth: CGFloat = 1.6, borderColor: UIColor = UIColor.systemGray5, backgroundColor: UIColor = UIColor.systemGray6){
         
         layer.cornerRadius = cornerRadius
         layer.borderWidth = borderWidth
         layer.borderColor = borderColor.cgColor
         self.backgroundColor = backgroundColor
+        
+    }
+
+    func defaultTheme2(cornerRadius: CGFloat = 4.0, borderWidth: CGFloat = 1, borderColor: UIColor = .clear, backgroundColor: UIColor? = nil){
+        
+        layer.cornerRadius = cornerRadius
+        layer.borderWidth = borderWidth
+        layer.borderColor = borderColor.cgColor
+        
+        if let backgroundColor {
+            self.backgroundColor = backgroundColor
+        }
         
     }
     
