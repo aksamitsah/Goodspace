@@ -42,6 +42,17 @@ final class OtpViewModel{
     }
 
     func resndOTP(comp: @escaping (Result<String,HandleError>) -> Void){
+        
+        //APP STORE LOGIN
+        if data.mobile == APP_STORE.user.mobile && data.countryCode == APP_STORE.user.countryCode{
+            
+            DispatchQueue.global(qos: .background).asyncAfter(deadline: .now() + 2.0) {
+                comp(.success("Test Account Login"))
+            }
+            
+            return
+        }
+        
         APIManager.request(endpoint: GoodSpaceAPI.Login(country: data.countryCode, mobile: data.mobile)) {
             (result: Result<LoginModel, HandleError>) in
             switch result{
@@ -53,8 +64,22 @@ final class OtpViewModel{
         }
     }
     
-    func VerifyOTP(otp: String, comp: @escaping (Result<OtpResponse,HandleError>) -> Void){
+    func VerifyOTP(otp: String, comp: @escaping (Result<OtpResponse?,HandleError>) -> Void){
+        
         data.otp = otp
+        
+        //APP STORE LOGIN
+        if data.mobile == APP_STORE.user.mobile && data.countryCode == APP_STORE.user.countryCode && data.otp == APP_STORE.user.otp{
+            
+            DispatchQueue.global(qos: .background).asyncAfter(deadline: .now() + 2.0) {
+                APP_STORE.isTestUser = true
+                AppSettings.setValue(token: APP_STORE.token, countryCode: APP_STORE.user.countryCode , mobileNo: APP_STORE.user.mobile)
+                comp(.success(nil))
+            }
+            
+            return
+        }
+        
         APIManager.request(endpoint: GoodSpaceAPI.VerifyOTP(mobile: data.mobile, otp: otp)) {
             (result: Result<OtpModel, HandleError>) in
             switch result{

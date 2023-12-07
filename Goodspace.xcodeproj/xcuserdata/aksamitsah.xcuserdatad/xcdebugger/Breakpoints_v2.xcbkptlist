@@ -574,8 +574,8 @@
             filePath = "Goodspace/Sources/ViewModels/OtpViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
             landmarkName = "VerifyOTP(otp:comp:)"
             landmarkType = "7">
             <Locations>
@@ -879,6 +879,54 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "39"
                   endingLineNumber = "39"
+                  offsetFromSymbolStart = "344">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4CADC924-41C4-4C69-A039-219D3DE762FF"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Goodspace/Sources/ViewModels/OtpViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
+            landmarkName = "VerifyOTP(otp:comp:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "4CADC924-41C4-4C69-A039-219D3DE762FF - 3eaebf5a8b4ba582"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable () -&gt; () in Goodspace.OtpViewModel.VerifyOTP(otp: Swift.String, comp: (Swift.Result&lt;Swift.Optional&lt;Goodspace.OtpResponse&gt;, Goodspace.HandleError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Goodspace"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aksamitsah/Projects/RND/Goodspace/Goodspace/Sources/ViewModels/OtpViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "77"
+                  endingLineNumber = "77"
+                  offsetFromSymbolStart = "48">
+               </Location>
+               <Location
+                  uuid = "4CADC924-41C4-4C69-A039-219D3DE762FF - 3eaebf5a8b4ba582"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable () -&gt; () in Goodspace.OtpViewModel.VerifyOTP(otp: Swift.String, comp: (Swift.Result&lt;Swift.Optional&lt;Goodspace.OtpResponse&gt;, Goodspace.HandleError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Goodspace"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/aksamitsah/Projects/RND/Goodspace/Goodspace/Sources/ViewModels/OtpViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "77"
+                  endingLineNumber = "77"
                   offsetFromSymbolStart = "344">
                </Location>
             </Locations>
