@@ -1,33 +1,29 @@
-<p align='center'>
 
-  <a href="https://www.linkedin.com/in/aksamitsah/">
-    <img src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white" />
-  </a>&nbsp;&nbsp;
-  
-</p>
 
 # [GoodSpace](https://www.amit-sah.com.np/) | Find Jobs & Hire Instantly
 
-## Project Initilization:
+## 🤖 Installation:
 
 - open Goodspace.xcodeproj
 - Goto Target `Goodspace` -> `SignIn & Compatability` select `team` & change  `package name`
 - If you issue on SPM Goto `File` -> `Packages` -> `Reset Packages Cache`
 - Ready To Go...
 
-# Login Test Desctiptions: 
+## Login Test Desctiptions: 
 - Number: `9999999999`
 - Country: `🇮🇳 IN (+91)`
 - OTP : `1234`
 
-# APP Link:
+## 🔗 APP Link:
 - TestFlight Public Link :
 - App Store Live: Soon :
 
-# Project Desctiptions: 
+## Project Desctiptions: 
 
 - Design Pattern : MVVM
-- Swift_5 with UIKit
+- Swift_v5.8 with UIKit
+- Min Support iOS_14+
+- Compatable: IPhone, Ipad & Mac(Design for Ipad)
 - SPM for CountryPickerAKS
 - API from [Goodspace](https://goodspace.ai/)
   
@@ -35,7 +31,7 @@
 ## 
 
 
- ## SNAPSHOOT
+## 📱 Screenshots
 
 <div align='center'>
 <img src="https://github.com/aksamitsah/Goodspace/assets/42860041/1a2313f6-08c6-45b3-a0ab-5ab66bcd33f3.png" width="240">
@@ -50,10 +46,9 @@
 </div>
 
 
- ## VidoeSnap
+ ## 📱 VidoeSnap
 
 https://github.com/aksamitsah/Goodspace/assets/42860041/9afb0a60-42aa-4d3c-bc97-47f2bba889b2.mp4
-
 
 
  ## PROJECT FILE STRACTURE
@@ -67,13 +62,21 @@ https://github.com/aksamitsah/Goodspace/assets/42860041/9afb0a60-42aa-4d3c-bc97-
    
  <img width="800" src="https://github.com/aksamitsah/Goodspace/assets/42860041/7388c750-8bfd-412d-a018-d398d805d7a0">
 
-## Thanks For Overview
+## 🪪 License
 
-<p align='center'>
+[MIT © 2023](https://raw.githubusercontent.com/aksamitsah/Goodspace/main/LICENSE)
 
-  <a href="https://www.linkedin.com/in/aksamitsah/">
-    <img src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white" />
-  </a>&nbsp;&nbsp;
-  
-</p>
+## 🔗 Links
+
+<div align='center'>
+  <a href="https://www.amit-sah.com.np/"><img src="https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white"/></a>
+  <a href="https://www.linkedin.com/in/aksamitsah/"><img src="https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white"/></a>
+</div>
+
+## 
+<div align='center'>
+  <h1>Thanks For Overview</h1>
+  <h4>Give it a ⭐️ if it simplifies your app development!</h4> 
+</div>
 
