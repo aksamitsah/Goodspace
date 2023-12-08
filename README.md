@@ -2,6 +2,12 @@
 
 # [GoodSpace](https://www.amit-sah.com.np/) | Find Jobs & Hire Instantly
 
+<div align='center'>
+  <a href="https://testflight.apple.com/join/9wovaSD1">
+  <img src="https://github.com/aksamitsah/Goodspace/assets/42860041/38081f39-2f46-4533-abec-07f1097af9a4.png" width="120"></a>
+  <p>Click to open OR Scan QR to Download App</p>
+</div>
+
 ## 🤖 Installation:
 
 - open Goodspace.xcodeproj
@@ -15,6 +21,7 @@
 - OTP : `1234`
 
 ## 🔗 APP Link:
+
 - TestFlight Public Link : https://testflight.apple.com/join/9wovaSD1
 - App Store Live: Comming Soon
 
@@ -31,7 +38,7 @@
 ## 
 
 
-## 📱 Screenshots
+## 📱 Screenshots - iPhone
 
 <div align='center'>
 <img src="https://github.com/aksamitsah/Goodspace/assets/42860041/1a2313f6-08c6-45b3-a0ab-5ab66bcd33f3.png" width="240">
@@ -45,10 +52,30 @@
 <img src="https://github.com/aksamitsah/Goodspace/assets/42860041/44c81978-d854-49ca-8104-24e2ae1ee6ed.png" width="240">
 </div>
 
+## 📱 Screenshots - iPad (Portrait)
+<div align='center'>
+<img src="https://github.com/aksamitsah/Goodspace/assets/42860041/ac30099c-155c-4327-ac4d-e61e65eb6e94.png" width="320">
+<img src="https://github.com/aksamitsah/Goodspace/assets/42860041/0c72e651-2311-4c77-9826-707519a0648a.png" width="320"><br>
+<img src="https://github.com/aksamitsah/Goodspace/assets/42860041/ca6ed428-c1e1-47d7-b094-ce6fe4b7497c.png" width="320">
+<img src="https://github.com/aksamitsah/Goodspace/assets/42860041/b8c3ec22-e4a8-4ac5-9d88-ada6e232f419.png" width="320">
+</div>
 
- ## 📱 VidoeSnap
+## 📱 Screenshots - iPad (Landscape)
+<div align='center'>
+<img src="https://github.com/aksamitsah/Goodspace/assets/42860041/ec068083-8eb9-4923-8d27-4f48a4148f27.png" height="320">
+<img src="https://github.com/aksamitsah/Goodspace/assets/42860041/d5edf6e3-77a9-409d-9383-5215464b13e4.png" height="320">
+<img src="https://github.com/aksamitsah/Goodspace/assets/42860041/44ff592a-610d-4430-9da6-9c302a86a29e.png" height="320">
+<img src="https://github.com/aksamitsah/Goodspace/assets/42860041/bdf31bf4-cf47-49ca-abde-69c7404253f1.png" height="320">
+</div>
+
+## 📱 VidoeSnap - iPhone
 
 https://github.com/aksamitsah/Goodspace/assets/42860041/9afb0a60-42aa-4d3c-bc97-47f2bba889b2.mp4
+
+ ## 📱 VidoeSnap - iPad
+ 
+https://github.com/aksamitsah/Goodspace/assets/42860041/3e48a4ae-70c8-4b7a-ab83-e910a50814b4.np4
+
 
 
  ## PROJECT FILE STRACTURE
